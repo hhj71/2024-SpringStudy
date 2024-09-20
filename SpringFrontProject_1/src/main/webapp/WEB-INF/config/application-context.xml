@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<!-- 사용자 정의 클래스 등록 -->
+	<context:component-scan base-package="com.sist.*"/>
+	<!-- 선별적인 메모리 할당
+		  스프링 관리 요청 : DAO, Manager, Service...
+		  @Component,
+		  @Repository,
+		  @Service,
+		  @Controller,
+		  @RestController,
+		  @ControllerAdvice,
+		  @Configuration		  
+	-->
+	<!-- AOP등록 -->
+	<aop:aspectj-autoproxy/>
+	<!-- ViewResolver 등록 -->
+	<!-- 
+		 DispatcherServlet    <=========> WebApplicationContext 
+		 		|									|
+		 	요청을 받아서 							등록된 클래스 관리(컨테이너)
+		 	결과값 전송
+		 	
+		 	1) 클래스 관리 요청 => DispatcherServlet이 XML의 경로명을 받아서 
+		 		<init-param>	WebApplicationContext로 전송 => 등록 클래스 메모리 할당 후 
+		 			<param-name>contextConfigLocation</param-name>
+		 			<param-value>/WEB-INF/config/application
+		 			
+		 			
+		 		</init-param>	
+		 	2) Model 클래스를 찾아주는 역할
+		 	   ========================== 구분자
+		 	   		1. @Controller
+		 	   		2. @RestController
+		 	   ========================== 클래스 구분
+		 	   		1. @GetMapping()
+		 	   		2. @PostMapping()
+		 	   		3. @RequestMapping() => PutMapping(), DeleteMapping()
+		 	   ========================== 메소드 구분
+		 	     => HandlerMapping (자동 생성)
+		 	     	web.xml에 등록하면 자동 생성
+		 	     	
+		    3) 
+		    
+		    
+		    
+		 셋팅 
+		 	1. 라이브러리 추가 : Maven    			/     Gradle
+		 						|						|
+		 					   Spring Framework		  Spring-Boot/ Kotlin
+		 					   => 라이브러리 관리/ 프로젝트 관리/ 배포 관리 / 버전 관리
+		 			| pom.xml => mvnrepository.com
+		 					  => 라이브러리가 없는 경우 => lib => <systemPath>
+		 	2. Spring5 => jdk 1.8이상
+		 	
+		 	3.
+		 	
+		 	
+		 	4. Mapper 등록 (MyBatis)
+		 	5. Model을 만들어서 요청에 대한 처리 
+		 		= 요청에 대한 화면 이동
+		 	
+		 	
+		 	
+		 	6. 응답을 받아서
+		 	
+		 	
+		 	=> 내장 객체
+		 		Cookie : 저장 => HttpServletResponse(다운로드 )
+		 		
+		 		
+		 	
+		 	
+		 	
+		 					   
+		 					   
+		 					   
+		 					   
+		 					   
+		 					   
+		 					   
+		 -->
+</beans>
