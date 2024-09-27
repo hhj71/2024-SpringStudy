@@ -6,3 +6,7 @@
 .settings
 .git
 .project
+git rm -r --cached .
+git add .
+git commit -m "rm cache"
+git push origin main
