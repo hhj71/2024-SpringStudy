@@ -83,8 +83,8 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">맛집</a>
                                     <div class="dropdown-menu" aria-labelledby="yummyDropdown">
-                                        <a class="dropdown-item" href="index.html">맛집목록</a>
-                                        <a class="dropdown-item" href="archive.html">맛집검색</a>
+                                        <a class="dropdown-item" href="../food/list.do">맛집목록</a>
+                                        <a class="dropdown-item" href="../food/find.do">맛집검색</a>
                                         <a class="dropdown-item" href="single.html">맛집예약</a>
                                         <a class="dropdown-item" href="static.html">맛집추천</a>
                                     </div>
@@ -92,19 +92,20 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">레시피</a>
                                     <div class="dropdown-menu" aria-labelledby="yummyDropdown">
-                                        <a class="dropdown-item" href="index.html">레시피목록</a>
-                                        <a class="dropdown-item" href="archive.html">셰프목록</a>
+                                        <a class="dropdown-item" href="../recipe/list.do">레시피목록</a>
+                                        <a class="dropdown-item" href="../recipe/chef.do">셰프목록</a>
                                         <a class="dropdown-item" href="single.html">레시피만들기</a>
+                            
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">여행</a>
                                     <div class="dropdown-menu" aria-labelledby="yummyDropdown">
-                                        <a class="dropdown-item" href="index.html">명소</a>
-                                        <a class="dropdown-item" href="archive.html">자연 & 관광</a>
-                                        <a class="dropdown-item" href="single.html">쇼핑</a>
-                                        <a class="dropdown-item" href="static.html">여행코스</a>
-                                        <a class="dropdown-item" href="static.html">실시간 날씨</a>
+                                        <a class="dropdown-item" href="../seoul/location.do">명소</a>
+                                        <a class="dropdown-item" href="../seoul/nature.do">자연 & 관광</a>
+                                        <a class="dropdown-item" href="../seoul/shop.do">쇼핑</a>
+                                        <a class="dropdown-item" href="single.html">여행 코스</a>
+                                        <a class="dropdown-item" href="single.html">실시간 날씨</a>
                                     </div>
                                 </li>
                                 <li class="nav-item">
@@ -115,21 +116,23 @@
                                     <div class="dropdown-menu" aria-labelledby="yummyDropdown">
                                         <a class="dropdown-item" href="index.html">자유게시판</a>
                                         <a class="dropdown-item" href="archive.html">공지사항</a>
-                                        <a class="dropdown-item" href="single.html">1:1 채팅</a>
-                                        <a class="dropdown-item" href="static.html">실시간 채팅</a>
+                                        <a class="dropdown-item" href="single.html">1:1채팅</a>
+                                        <a class="dropdown-item" href="single.html">실시간 채팅</a>
+                                    
                                     </div>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">빠른예약</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">마이페이지</a>
+                                    <a class="nav-link" href="archive.html">마이페이지</a>
                                 </li>
                                 <!-- 
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">관리자페이지</a>
                                 </li>
-                                 -->
+                                -->
+                                
                             </ul>
                         </div>
                     </nav>

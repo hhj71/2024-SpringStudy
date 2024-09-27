@@ -116,14 +116,15 @@ public class MainController {
 	@GetMapping("main.do")
 	public String main_main(Model model)
 	{
-		   RecipeVO rvo=rService.recipeMaxHitData();
+		RecipeVO rvo=rService.recipeMaxHitData();
 		   List<RecipeVO> rList=rService.recipeHitTop8();
 		   List<FoodVO> fList=fService.foodHitTop5();
+		   ChefVO cvo=rService.chefToday();
 		   
+		   model.addAttribute("cvo", cvo);
 		   model.addAttribute("rvo", rvo);
 		   model.addAttribute("rList", rList);
 		   model.addAttribute("fList", fList);
-		
-		return "main";
+		   return "main";
 	}
 }

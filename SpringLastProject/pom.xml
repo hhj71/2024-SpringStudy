@@ -3,11 +3,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.sist</groupId>
-	<artifactId>weg</artifactId>
+	<artifactId>web</artifactId>
 	<name>SpringLastProject</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
-	<properties>
+		<properties>
 	   <!-- Spring 5 -->
 		<java-version>1.8</java-version>
 		<org.springframework-version>5.1.5.RELEASE</org.springframework-version>

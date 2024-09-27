@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +37,7 @@
                         <img src="../img/catagory-img/3.jpg" alt="">
                         <div class="catagory-title">
                             <a href="#">
-                                <h5>서울 여행</h5>
+                                <h5>서울여행</h5>
                             </a>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
                             <div class="single-post wow fadeInUp" data-wow-delay=".2s">
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="${rvo.poster }" style="width: 700px; height:250px;">
+                                    <img src="${rvo.poster }" style="width: 700px;height: 250px">
                                 </div>
                                 <!-- Post Content -->
                                 <div class="post-content">
@@ -78,7 +78,7 @@
                                         <div class="post-comment-share-area d-flex">
                                             <!-- Post Favourite -->
                                             <div class="post-favourite">
-                                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
+                                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> ${rvo.hit }</a>
                                             </div>
                                             <!-- Post Comments -->
                                             <div class="post-comments">
@@ -100,9 +100,9 @@
                         </div>
 
                         <!-- Single Post -->
-                        <c:forEach var="vo" items="${rList }">
-						<c:if test="${s.index<4 }">
-                        <div class="col-12 col-md-6">
+                        <c:forEach var="vo" items="${rList }" varStatus="s">
+                         <c:if test="${s.index<4 }">
+                         <div class="col-12 col-md-6">
                             <div class="single-post wow fadeInUp" data-wow-delay=".4s">
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
@@ -116,66 +116,13 @@
                                             <div class="post-author">
                                                 <a href="#">${vo.chef }</a>
                                             </div>
-                                            <!-- Post Date -->
-                                            <div class="post-date">
-                                                <a href="#">May 19, 2017</a>
-                                            </div>
+                                            
                                         </div>
                                         <!-- Post Comment & Share Area -->
                                         <div class="post-comment-share-area d-flex">
                                             <!-- Post Favourite -->
                                             <div class="post-favourite">
-                                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
-                                            </div>
-                                            <!-- Post Comments -->
-                                            <div class="post-comments">
-                                                <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> ${vo.hit}</a>
-                                            </div>
-                                            <!-- Post Share -->
-                                            <div class="post-share">
-                                                <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a href="#">
-                                        <h4 class="post-headline">${vo.title }</h4>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        </c:if>
-						</c:forEach>
-						</div>
-						</div>
-                        <!-- ******* List Blog Area Start ******* -->
-
-                        <!-- Single Post -->
-                        <c:forEach var="vo" items="${rList }" varStatus="s">
-                        <c:if test="">
-                        <div class="col-12">
-                            <div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".2s">
-                                <!-- Post Thumb -->
-                                <div class="post-thumb">
-                                    <img src="${vo.poster }" alt="">
-                                </div>
-                                <!-- Post Content -->
-                                <div class="post-content">
-                                    <div class="post-meta d-flex">
-                                        <div class="post-author-date-area d-flex">
-                                            <!-- Post Author -->
-                                            <div class="post-author">
-                                                <a href="#">${vo.chef }</a>
-                                            </div>
-                                            <!-- Post Date -->
-                                            <div class="post-date">
-                                                <a href="#">May 19, 2017</a>
-                                            </div>
-                                        </div>
-                                        <!-- Post Comment & Share Area -->
-                                        <div class="post-comment-share-area d-flex">
-                                            <!-- Post Favourite -->
-                                            <div class="post-favourite">
-                                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
+                                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> ${vo.hit }</a>
                                             </div>
                                             <!-- Post Comments -->
                                             <div class="post-comments">
@@ -190,47 +137,82 @@
                                     <a href="#">
                                         <h4 class="post-headline">${vo.title }</h4>
                                     </a>
-                                    <p>${vo.content}</p>
+                                </div>
+                            </div>
+                         </div>
+                        </c:if>
+                      </c:forEach>
+                        <!-- ******* List Blog Area Start ******* -->
+
+                        <!-- Single Post -->
+                        <c:forEach var="vo" items="${rList }" varStatus="s">
+                        <c:if test="${s.index>3 }">
+                        <div class="col-12">
+                            <div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".2s">
+                                <!-- Post Thumb -->
+                                <div class="post-thumb">
+                                    <img src="${vo.poster }" alt="">
+                                </div>
+                                <!-- Post Content -->
+                                <div class="post-content">
+                                    <div class="post-meta d-flex">
+                                        <div class="post-author-date-area d-flex">
+                                            <!-- Post Author -->
+                                            <div class="post-author">
+                                                <a href="#">${vo.chef }</a>
+                                            </div>
+                                            
+                                        </div>
+                                        <!-- Post Comment & Share Area -->
+                                        <div class="post-comment-share-area d-flex">
+                                            <!-- Post Favourite -->
+                                            <div class="post-favourite">
+                                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> ${vo.hit }</a>
+                                            </div>
+                                            <!-- Post Comments -->
+                                            <div class="post-comments">
+                                                <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
+                                            </div>
+                                            <!-- Post Share -->
+                                            <div class="post-share">
+                                                <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#">
+                                        <h4 class="post-headline">${vo.title }</h4>
+                                    </a>
+                                    <p>${vo.content }</p>
                                     <a href="#" class="read-more">Continue Reading..</a>
                                 </div>
                             </div>
                         </div>
                         </c:if>
-					</c:forEach>
+                      </c:forEach>
+                     </div>
+                     </div>
+                        
                 <!-- ****** Blog Sidebar ****** -->
                 <div class="col-12 col-sm-8 col-md-6 col-lg-4">
                     <div class="blog-sidebar mt-5 mt-lg-0">
                         <!-- Single Widget Area -->
                         <div class="single-widget-area about-me-widget text-center">
                             <div class="widget-title">
-                                <h6>맛집 뉴스</h6>
+                                <h6>오늘의 쉐프</h6>
                             </div>
                             <div class="about-me-widget-thumb">
-                                <img src="../img/about-img/1.jpg" alt="">
+                                <img src="${cvo.poster }" alt="">
                             </div>
-                            <h4 class="font-shadow-into-light">Shopia Bernard</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                            <h4 class="font-shadow-into-light">${cvo.chef }</h4>
+                            
                         </div>
 
-                        <!-- Single Widget Area -->
-                        <div class="single-widget-area subscribe_widget text-center">
-                            <div class="widget-title">
-                                <h6>Subscribe &amp; Follow</h6>
-                            </div>
-                            <div class="subscribe-link">
-                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-google" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
+                        
 
                         <!-- Single Widget Area -->
                         <div class="single-widget-area popular-post-widget">
                             <div class="widget-title text-center">
-                                <h6>Populer Post</h6>
+                                <h6>인기 맛집</h6>
                             </div>
                             <!-- Single Popular Post -->
                             <c:forEach var="vo" items="${fList }">
@@ -243,7 +225,7 @@
                                     <p>${vo.address }</p>
                                 </div>
                             </div>
-                            </c:forEach>
+                           </c:forEach>        
                         </div>
 
                         <!-- Single Widget Area -->
@@ -253,8 +235,8 @@
                                 <div class="add-text">
                                     <div class="yummy-table">
                                         <div class="yummy-table-cell">
-                                            <h2>Cooking Book</h2>
-                                            <p>Buy Book Online Now!</p>
+                                            <h2>Goods By</h2>
+                                            <p>Buy Goods Online Now!</p>
                                             <a href="#" class="add-btn">Buy Now</a>
                                         </div>
                                     </div>
@@ -265,14 +247,14 @@
                         <!-- Single Widget Area -->
                         <div class="single-widget-area newsletter-widget">
                             <div class="widget-title text-center">
-                                <h6>Newsletter</h6>
+                                <h6>맛집 뉴스</h6>
                             </div>
-                            <p>Subscribe our newsletter gor get notification about new updates, information discount, etc.</p>
+                            
                             <div class="newsletter-form">
-                                <form action="#" method="post">
-                                    <input type="email" name="newsletter-email" id="email" placeholder="Your email">
-                                    <button type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-                                </form>
+               
+                                    <input type="text" name="newsletter-email" id="nd" placeholder="검색어 입력">
+                                    <button type=button><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                               
                             </div>
                         </div>
                     </div>
