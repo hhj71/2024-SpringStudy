@@ -83,7 +83,7 @@ public class RecipeServiceImpl implements RecipeService{
 	}
 
 	@Override
-	public List<FoodHouseVO> foodTop5Data() {
+	public List<FoodVO> foodTop5Data() {
 		// TODO Auto-generated method stub
 		return dao.foodTop5Data();
 	}

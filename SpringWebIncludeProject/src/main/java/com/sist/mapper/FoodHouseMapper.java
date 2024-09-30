@@ -6,7 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import com.sist.vo.FoodHouseVO;
+import com.sist.vo.FoodVO;
 import com.sist.vo.RecipeDetailVO;
 import com.sist.vo.RecipeVO;
 
@@ -16,7 +16,7 @@ public interface FoodHouseMapper {
 			+"FROM (SELECT /*+ INDEX_ASC(project_food_house FH_FNO_PK)*/fno, poster, name "
 			+"FROM project_food_house)) "
 			+"WHERE num BETWEEN #{start} AND #{end}")
-	public List<FoodHouseVO> FoodHouseListData(Map map);
+	public List<FoodVO> FoodHouseListData(Map map);
 	
 	@Select("SELECT COUNT(*) FROM project_food_house ")
 	public int FoodHouseRowCount();
@@ -29,11 +29,11 @@ public interface FoodHouseMapper {
 	   
 	   @Select("SELECT * FROM project_food_house "
 			  +"WHERE fno=#{fno}")
-	   public FoodHouseVO FoodHouseDetailData(int fno);
+	   public FoodVO FoodHouseDetailData(int fno);
 	   
 	// 쿠키 정보 데이터 
 	   @Select("SELECT fno, name, poster "
 			   +"FROM project_food_house "
 			   +"WHERE fno=#{fno}")
-	   public FoodHouseVO FoodHouseCookieInfoData(int fno);
+	   public FoodVO FoodHouseCookieInfoData(int fno);
 }

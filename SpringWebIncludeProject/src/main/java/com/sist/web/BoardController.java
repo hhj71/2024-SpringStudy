@@ -23,6 +23,15 @@ import com.sist.vo.*;
  * 		4. JSP에 request를 받아서 화면에 출력
  * 		5. 브라우저에서 읽기
  * 		
+ * 	   Model ======> Service =======> DAO ======> 오라클 
+ *          <=======       <=======   |   <======
+ *                                  유지보수
+ *          결합성이 낮은 프로그램 : 스프링의 기조
+ *          =================== 수정시에 다른 클래스에 영향이 없게 만든다 
+ *                              =================================
+ *                               | *** POJO => 독립적인 클래스
+ *                                      70%  
+ * 
  * 		=> 스프링 : Model - 화면제어 : @Controller / 데이터제어 : @RestController / @GetMapping, @PostMapping / 리턴형: void, String / 매개변수 getParameter를 대체
  * 				  JSP - 화면을 유지 => 자바스크립트 (Ajax => Vue => React) / 다른 화면으로 변경 => <a> , <form> 
  * 				  DAO - 유지보수 <== Mapper(SQL)
@@ -162,9 +171,18 @@ public class BoardController {
 			   return "main/main";
 		   }
 		   @PostMapping("board/reply_ok.do")
-		   public String board_reply_ok(int pno, ReplyBoardVO vo)
+		   public String board_reply_ok(int pno,ReplyBoardVO vo)
 		   {
-			   // 처리
-			   
+			   // 처리 
+			   bService.boardReplyInsert(pno, vo);
+			   return "redirect:../board/list.do";
+		   }
+		   // board/delete.do?no=${vo.no }
+		   @GetMapping("board/delete.do")
+		   public String board_delete(int no,Model model)
+		   {
+			   model.addAttribute("no", no);
+			   model.addAttribute("main_jsp", "../board/delete.jsp");
+			   return "main/main";
 		   }
 		}

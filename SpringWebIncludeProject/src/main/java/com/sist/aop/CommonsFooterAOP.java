@@ -54,6 +54,59 @@ package com.sist.aop;
  * 									=> 어떤 메소드에 어떤 위치에 이 기능을 수행 
  * 									   ========   ========
  * 										|PointCut	|joinPoint
+ *   public void aaa(){} => before
+ *                    public void bbb(){} => after-throwing
+ *                    public void ccc(){} => after
+ *                    public void ddd(){} => after-returning
+ *                    
+ *                    public void display_1()
+ *                    {
+ *                       try
+ *                       {
+ *                           aaa() => before
+ *                       }catch(Exception e)
+ *                       {  
+ *                           bbb() => after-throwing
+ *                       }
+ *                       finally
+ *                       {
+ *                           ccc() => after
+ *                       }
+ *                       
+ *                       return ddd() => after-returning
+ *                    }
+ *                    public void display_2()
+ *                    {
+ *                       try
+ *                       {
+ *                           
+ *                       }catch(Exception e)
+ *                       {
+ *                           
+ *                       }
+ *                       finally
+ *                       {
+ *                           
+ *                       }
+ *                       
+ *                       return 
+ *                    }
+ *                    public void display_3()
+ *                    {
+ *                       try
+ *                       {
+ *                           
+ *                       }catch(Exception e)
+ *                       {
+ *                           
+ *                       }
+ *                       finally
+ *                       {
+ *                          
+ *                       }
+ *                       
+ *                       return  
+ *                    }
  * 			= MVC
  * 						브라우저 요청 (URL주소 이용)
  * 									  -> *.do   (요청 받는 역할)		 @GetMapping/@PostMapping에서 해당 URL을 찾는다   return 값을 받아서 JSP를 찾는다
@@ -65,10 +118,48 @@ package com.sist.aop;
  * 																			   1) 요청값을 받는다 : request를 이용
  * 																								 매개변수를 이용 (권장)
  * 																			   2) DB 연동
- * 																					 서비스 계층 === 데이터 액세스
- * 																			   3) 결과값 
- * 			= 데이터베이스 : ORM (MyBatis) 
- * 
+ * 																					 서비스 계층 === 데이터 액세스 계층
+ * 																			   3) 결과값 전송
+ * 																				 @RequestMapping("member/join_ok.do")
+ *public String member_join_ok(MemberVO vo)      
+ *{
+ *   dao.insert(vo)
+ *}                   
+  public String member_join_ok(HttpServletRequest request,HttpServletResponse response)
+  {
+	  try
+	  {
+		  request.setCharacterEncoding("UTF-8");
+	  }catch(Exception ex) {}
+	  String id=request.getParameter("id");
+	  String pwd=request.getParameter("pwd");
+	  String name=request.getParameter("name");
+	  String sex=request.getParameter("sex");
+	  String birthday=request.getParameter("birthday");
+	  String post=request.getParameter("post");
+	  String addr1=request.getParameter("addr1");
+	  String addr2=request.getParameter("addr2");
+	  String email=request.getParameter("email");
+	  String content=request.getParameter("content");
+	  String phone1=request.getParameter("phone1");
+	  String phone2=request.getParameter("phone2");
+	  
+	  MemberVO vo=new MemberVO();
+	  vo.setId(id);
+	  vo.setPwd(pwd);
+	  vo.setName(name);
+	  vo.setSex(sex);
+	  vo.setEmail(email);
+	  vo.setBirthday(birthday);
+	  vo.setPost(post);
+	  vo.setAddr1(addr1);
+	  vo.setAddr2(addr2);
+	  vo.setContent(content);
+	  vo.setPhone(phone1+")"+phone2);
+	  MemberDAO.memberInsert(vo);
+
+ *          
+ *        = 데이터베이스 : ORM (MyBatis) 
  */
 import java.util.*;
 
@@ -92,7 +183,7 @@ public class CommonsFooterAOP {
 	@After("execution(* com.sist.web.*Controller.*(..))")
 	public void commonsFooterData()
 	{
-		List<FoodHouseVO> foodList=rService.foodTop5Data(); 
+		List<FoodVO> foodList=rService.foodTop5Data(); 
 		List<RecipeVO> recipeList=rService.recipeTop5Data();
 		
 		// 전송 => request

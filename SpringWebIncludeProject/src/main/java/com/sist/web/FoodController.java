@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sist.service.FoodHouseService;
-import com.sist.vo.FoodHouseVO;
+import com.sist.vo.FoodVO;
 @Controller
 public class FoodController {
 	@Autowired
@@ -31,7 +31,7 @@ public class FoodController {
 		    Map map=new HashMap();
 		    map.put("start", (curpage*20)-19);
 		    map.put("end", curpage*20);
-		    List<FoodHouseVO> list=fService.FoodHouseListData(map);
+		    List<FoodVO> list=fService.FoodHouseListData(map);
 		    int count=fService.FoodHouseRowCount();
 		    int totalpage=(int)(Math.ceil(count/20.0));
 		    
@@ -51,7 +51,7 @@ public class FoodController {
 		    
 		    // 쿠키 출력 
 		    Cookie[] cookies=request.getCookies();
-		    List<FoodHouseVO> cList=new ArrayList<FoodHouseVO>();
+		    List<FoodVO> cList=new ArrayList<FoodVO>();
 		    // 쿠키 담는 List
 		    if(cookies!=null)
 		    {
@@ -61,7 +61,7 @@ public class FoodController {
 		    		if(cookies[i].getName().startsWith("food_"))
 		    		{
 		    			String fno=cookies[i].getValue();
-		    			FoodHouseVO vo=fService.FoodHouseCookieInfoData(Integer.parseInt(fno));
+		    			FoodVO vo=fService.FoodHouseCookieInfoData(Integer.parseInt(fno));
 		    			cList.add(vo);
 		    		}
 		    	}
@@ -96,7 +96,7 @@ public class FoodController {
 	   public String food_detail(int fno,Model model)
 	   {
 		   // 데이터베이스 연결 => 데이터를 읽기 
-		   FoodHouseVO vo=fService.FoodHouseDetailData(fno);
+		   FoodVO vo=fService.FoodHouseDetailData(fno);
 		   
 		   // detail.jsp로 출력할 데이터 보내준다 
 		   model.addAttribute("vo", vo);
@@ -110,7 +110,7 @@ public class FoodController {
 	   {
 		// 쿠키 출력
 		    Cookie[] cookies=request.getCookies();
-		    List<FoodHouseVO> cList = new ArrayList<FoodHouseVO>();
+		    List<FoodVO> cList = new ArrayList<FoodVO>();
 		    
 		    if(cookies!=null)
 		    {
@@ -120,7 +120,7 @@ public class FoodController {
 		    		if(cookies[i].getName().startsWith("food_"))
 		    		{
 		    			String fno = cookies[i].getValue();
-		    			FoodHouseVO vo = fService.FoodHouseCookieInfoData(Integer.parseInt(fno));
+		    			FoodVO vo = fService.FoodHouseCookieInfoData(Integer.parseInt(fno));
 		    			cList.add(vo);
 		    		}
 		    	}

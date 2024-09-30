@@ -46,7 +46,7 @@
           <td colspan="4" class="text-right">
            <a href="update.do?no=${vo.no }" class="btn btn-xs btn-warning">수정</a>
            <a href="delete.do?no=${vo.no }" class="btn btn-xs btn-success">삭제</a>
-           <a href="list.do" class="btn btn-xs btn-primary">목록</a>
+           <a href="list.do" class="btn btn-xs btn-info">목록</a>
           </td>
         </tr>
       </table>

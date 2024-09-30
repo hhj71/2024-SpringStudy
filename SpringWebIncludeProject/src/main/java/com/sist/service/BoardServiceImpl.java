@@ -33,6 +33,29 @@ public class BoardServiceImpl implements BoardService{
 		// TODO Auto-generated method stub
 		return dao.boardDetailData(no);
 	}
-    
+
+	@Override
+	public ReplyBoardVO boardUpdateData(int no) {
+		// TODO Auto-generated method stub
+		return dao.boardUpdateData(no);
+	}
+
+	@Override
+	public String boardUpdate(ReplyBoardVO vo) {
+		// TODO Auto-generated method stub
+		return dao.boardUpdate(vo);
+	}
+
+	@Override
+	public void boardReplyInsert(int pno, ReplyBoardVO vo) {
+		// TODO Auto-generated method stub
+		dao.boardReplyInsert(pno, vo);
+	}
+
+	@Override
+	public String boardDelete(int no, String pwd) {
+		// TODO Auto-generated method stub
+		return dao.boardDelete(no, pwd);
+	}
     
 }

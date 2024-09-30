@@ -63,7 +63,7 @@ p{
 							<caption><h3>예약일 정보</h3></caption>
 							<tr>
 								<td>
-								  <div id="calander"></div>
+								  <div id="calendar"></div>
 								 </td>
 						    </tr>
 						</table>
@@ -71,6 +71,11 @@ p{
 					<td class="text-center" width=30% rowspan="2">
 						<table class="table">
 							<caption><h3>예약 정보</h3></caption>
+							<tr>
+							<td class="text-center">
+								<img: src="'http://www.menupan.com'+food_detail.poster">
+							</td>	
+							</tr>
 						</table>
 					</td>
 				</tr>
@@ -81,8 +86,11 @@ p{
 						</table>
 					</td>
 					<td class="text-center" width=30% height="200">
-						<table class="table">
+						<table class="table" v-show="isInwon">
 							<caption><h3>인원 정보</h3></caption>
+					<tr>
+						
+					</tr>
 						</table>
 					</td>
 				</tr>
@@ -97,13 +105,59 @@ p{
 					isTime:false,
 					isInwon:false,
 					food_list:[],
-					type:'한식'
+					type:'한식',
+					food_detail:{},
+					rday:'',
+					rtime:['10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00'],
+					ts:'',
+					inwon:['1명','2명','3명','4명','5명','6명','7명','8명','9명'],
+					is:''
+					
+					
 				  }
 				},
+				mounted(){
+					let date=new Date()
+					let year=date.getFullYear()
+					let month=date.getMonth()+1 //("0"+(1+date.getMonth())).slice(-2);
+					let day=date.getDate //("0"+date.getDate()).slice(-2)
+					// 시작과 동시에 변수 초기화
+					document.addEventListener('DOMContentLoaded', function(){
+						let calendarEl=document.getElementById('calendar')
+						let calendar=new FullCalendar.Calendar(calendarEl,{
+							initialView:'dayGridMonth',
+							height:450,
+							headerToolbar:{
+								left:'prev, next',
+								center:'title'
+							},
+								validRange:{
+									start:year+"-"+month+"-"+day
+								}
+								themeSystem:'bootstrap',
+								editable:true,
+								dropable:true,
+								dateClick:((info)=>{
+									//alert('click date:'+info.dateStr)
+									
+									
+								})
+						})
+						calendar.render()
+					})
+					this.dataRecv()
+				},
+				methods:{
+					inwonSelect(inwon){
+						
+					},
+					timeSelect(time){
+						this.isInwon=true
+						this.ts=time
+					},
+				}
 				
-				
-			}
-		})
+		}).mount('.container')
 	</script>
 </body>
 </html>

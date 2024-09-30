@@ -63,12 +63,12 @@
 </head>
 <body>
    <div class="container">
-     <h3 class="text-center">자유 게시판</h3>
+     <h3 class="text-center">멀티 업로드 자료실</h3>
      <div class="row">
       <table class="table">
        <tr>
         <td>
-         <a href="insert.do" class="btn btn-sm btn-primary">새글</a>
+         <a href="insert.do" class="btn btn-sm btn-primary">등록</a>
         </td>
        </tr>
       </table>

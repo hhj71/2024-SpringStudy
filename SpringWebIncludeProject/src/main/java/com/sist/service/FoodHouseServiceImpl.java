@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sist.dao.*;
-import com.sist.vo.FoodHouseVO;
+import com.sist.vo.FoodVO;
 
 @Service
 public class FoodHouseServiceImpl implements FoodHouseService{
@@ -16,7 +16,7 @@ public class FoodHouseServiceImpl implements FoodHouseService{
 
 	
 	@Override
-	public List<FoodHouseVO> FoodHouseListData(Map map) {
+	public List<FoodVO> FoodHouseListData(Map map) {
 		// TODO Auto-generated method stub
 		return dao.FoodHouseListData(map);
 	}
@@ -28,13 +28,13 @@ public class FoodHouseServiceImpl implements FoodHouseService{
 	}
 
 	@Override
-	public FoodHouseVO FoodHouseCookieInfoData(int fno) {
+	public FoodVO FoodHouseCookieInfoData(int fno) {
 		// TODO Auto-generated method stub
 		return dao.FoodHouseCookieInfoData(fno);
 	}
 
 	@Override
-	public FoodHouseVO FoodHouseDetailData(int fno) {
+	public FoodVO FoodHouseDetailData(int fno) {
 		// TODO Auto-generated method stub
 		return dao.FoodHouseDetailData(fno);
 	}
