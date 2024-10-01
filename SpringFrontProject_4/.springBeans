@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <beansProjectDescription>
 	<version>1</version>
@@ -7,9 +8,12 @@
 	</configSuffixes>
 	<enableImports><![CDATA[true]]></enableImports>
 	<configs>
+		<config>src/main/webapp/WEB-INF/config/application-context.xml</config>
+		<config>src/main/webapp/WEB-INF/config/application-datasource.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
 	<configSets>
 	</configSets>
 </beansProjectDescription>
+
