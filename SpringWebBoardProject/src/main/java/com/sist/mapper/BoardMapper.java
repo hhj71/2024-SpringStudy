@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Update;
 
 import com.sist.vo.*;
 public interface BoardMapper {
-  // ¸ñ·Ï = ÆäÀÌÁö³ª´©±â  
+  // ëª©ë¡ = í˜ì´ì§€ë‚˜ëˆ„ê¸°  
   @Select("SELECT no,subject,name,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,hit,num "
 		 +"FROM (SELECT no,subject,name,regdate,hit,rownum as num "
 		 +"FROM (SELECT no,subject,name,regdate,hit "
@@ -18,19 +18,19 @@ public interface BoardMapper {
   public List<BoardVO> boardListData(@Param("start") int start,@Param("end") int end);
   /*
    *   <select id="boardListData" resultType="BoardVO" parameterType="">
-   *               ¸Ş¼Òµå                ¸®ÅÏÇü             ¸Å°³º¯¼ö 
+   *               ë©”ì†Œë“œ                ë¦¬í„´í˜•             ë§¤ê°œë³€ìˆ˜ 
    *     SELECT~
    *   </select>
    */
-  // boardList(1,10) => ±¸ºĞÀÚ Àü¼Û => @Param => ¸Å°³º¯¼ö¸¦ ¿©·¯°³ »ç¿ëÀÌ °¡´É 
-  // Map => 1°³ ÀÌ¿ë½Ã¿¡´Â , VO
+  // boardList(1,10) => êµ¬ë¶„ì ì „ì†¡ => @Param => ë§¤ê°œë³€ìˆ˜ë¥¼ ì—¬ëŸ¬ê°œ ì‚¬ìš©ì´ ê°€ëŠ¥ 
+  // Map => 1ê°œ ì´ìš©ì‹œì—ëŠ” , VO
   @Select("SELECT COUNT(*) FROM spring_board")
   public int boardRowCount();
-  // Ãß°¡ 
+  // ì¶”ê°€ 
   @Insert("INSERT INTO spring_board(no,name,subject,content,pwd) "
 		 +"VALUES(sb_no_seq.nextval,#{name},#{subject},#{content},#{pwd})")
   public void boardInsert(BoardVO vo);
-  // »ó¼¼º¸±â
+  // ìƒì„¸ë³´ê¸°
   @Update("UPDATE spring_board SET "
 		 +"hit=hit+1 "
 		 +"WHERE no=#{no}")
@@ -41,19 +41,19 @@ public interface BoardMapper {
 		 +"FROM spring_board "
 		 +"WHERE no=#{no}")
   public BoardVO boardDetailData(int no);
-  // ¼öÁ¤ 
+  // ìˆ˜ì • 
   
   @Select("SELECT pwd FROM spring_board "
 		 +"WHERE no=#{no}")
-  public String boardGetPassword(int no); // ºñ¹Ğ¹øÈ£ °¡Áö°í ¿À±â 
+  public String boardGetPassword(int no); // ë¹„ë°€ë²ˆí˜¸ ê°€ì§€ê³  ì˜¤ê¸° 
   
   @Update("UPDATE spring_board SET "
 		 +"name=#{name} , subject=#{subject},content=#{content}" 
 		 +"WHERE no=#{no}")
   public void boardUpdate(BoardVO vo);
-  // »èÁ¦ 
+  // ì‚­ì œ 
   @Delete("DELETE FROM spring_board "
 		 +"WHERE no=#{no}")
   public void boardDelete(int no);
-  // °Ë»ö 
+  // ê²€ìƒ‰ 
 }

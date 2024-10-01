@@ -7,7 +7,6 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import com.sist.mapper.*;
 import com.sist.vo.*;
 public interface DataBoardMapper {
 	  @Select("SELECT no,subject,name,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,hit,num "
@@ -27,7 +26,7 @@ public interface DataBoardMapper {
 			 +"#{pwd},#{filename},#{filesize},#{filecount})")
 	  public void databoardInsert(DataBoardVO vo);
 	  
-	  // »ó¼¼º¸±â 
+	  // ìƒì„¸ë³´ê¸° 
 	  @Update("UPDATE spring_databoard SET "
 			 +"hit=hit+1 "
 			 +"WHERE no=#{no}")
@@ -39,7 +38,7 @@ public interface DataBoardMapper {
 			 +"WHERE no=#{no}")
 	  public DataBoardVO databoardDetailData(int no);
 	  
-	  // »èÁ¦ÇÏ±â => ºñ±³ (¾ÏÈ£È­ = ½ÇÁ¦ µ¥ÀÌÅÍ) => match
+	  // ì‚­ì œí•˜ê¸° => ë¹„êµ (ì•”í˜¸í™” = ì‹¤ì œ ë°ì´í„°) => match
 	  @Select("SELECT filename,filecount FROM spring_databoard "
 			 +"WHERE no=#{no}")
 	  public DataBoardVO  databoardFileInfoData(int no);
