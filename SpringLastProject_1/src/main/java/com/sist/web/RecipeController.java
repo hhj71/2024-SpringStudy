@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class RecipeController {
 	  @GetMapping("recipe/list.do")
-	  // returnÀº ¹İµå½Ã => ÆÄÀÏ¸í , .do => Router
+	  // returnì€ ë°˜ë“œì‹œ => íŒŒì¼ëª… , .do => Router
 	  public String recipe_list()
 	  {
 		  return "recipe/list";
